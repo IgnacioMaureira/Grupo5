@@ -56,7 +56,7 @@ struct Promulgacion{
     int id;                     // Identificador único del proceso de promulgación
     struct ProyectoDeLey *proyecto;    // Proyecto de ley a promulgar
     int estado;                // Estado del proceso (0: Pendiente, 1: Promulgado, 2: Veto)
-    char observaciones[1024];    // Observaciones del Presidente en caso de veto
+    char *observaciones;    // Observaciones del Presidente en caso de veto
 };
 
 
