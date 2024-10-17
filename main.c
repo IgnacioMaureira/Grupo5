@@ -4,9 +4,9 @@
 
 struct ProyectoDeLey {
     int id;                     // Identificador único del proyecto
-    char titulo[256];          // Título del proyecto de ley
-    char descripcion[1024];    // Descripción del proyecto
-    char autor[256];           // Autor del proyecto (Presidente, parlamentarios, ciudadanía)
+    char *titulo;          // Título del proyecto de ley
+    char *descripcion;    // Descripción del proyecto
+    char *autor;           // Autor del proyecto (Presidente, parlamentarios, ciudadanía)
     int estado;                // Estado del proyecto (0: Iniciado, 1: En Comisión, 2: Aprobado en Cámara de Origen, ...)
 };
 
@@ -14,9 +14,9 @@ struct ProyectoDeLey {
 
 struct Parlamentario {
     int id;                     // Identificador único del parlamentario
-    char nombre[256];           // Nombre del parlamentario
-    char partido[256];          // Partido político al que pertenece
-    char camara[256];           // Cámara a la que pertenece (Diputados o Senado)
+    char *nombre;           // Nombre del parlamentario
+    char *partido;          // Partido político al que pertenece
+    char *camara;           // Cámara a la que pertenece (Diputados o Senado)
 };
 
 
@@ -24,7 +24,7 @@ struct Parlamentario {
 
 struct Comision {
     int id;                     // Identificador único de la comisión
-    char nombre[256];           // Nombre de la comisión
+    char *nombre;           // Nombre de la comisión
     struct Parlamentario *miembros;     // Lista de miembros de la comisión (lista enlazada)
     int numMiembros;            // Número de miembros
 };
@@ -34,7 +34,7 @@ struct Comision {
 
 struct Camara{
     int id;                     // Identificador único de la cámara
-    char nombre[256];           // Nombre de la cámara (Cámara de Diputados o Senado)
+    char *nombre;           // Nombre de la cámara (Cámara de Diputados o Senado)
     struct ProyectoDeLey *proyectos;   // Proyectos en la cámara (lista doblemente enlazada)
     int numProyectos;           // Número de proyectos en la cámara
 };
