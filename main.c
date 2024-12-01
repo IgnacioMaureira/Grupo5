@@ -1703,15 +1703,15 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
     int opcion, verificarOpcion;
     while(1){
         printf("\n===== Menu Administracion =====\n");
-        printf("1. Administrar Ciudadanos\n"); /*LISTO*/
+        printf("1. Administrar Ciudadanos\n"); 
         printf("2. Administrar Diputados\n");
         printf("3. Administrar Senadores\n");
-        printf("4. Administrar Presidente\n"); /*LISTO*/
-        printf("5. Administrar Proyectos\n"); /*LISTO*/
-        printf("6. Administrar Camaras o Comision Mixta\n"); /*LISTO*/
-        printf("7. Promulgacion o Veto Presidencial\n"); /*LISTO*/
-        printf("8. Administrar Boletines\n"); /*LISTO*/
-        printf("9. Administrar Tribunal Constitucional\n"); /*LISTO*/
+        printf("4. Administrar Presidente\n"); 
+        printf("5. Administrar Proyectos\n"); 
+        printf("6. Administrar Camaras o Comision Mixta\n"); 
+        printf("7. Promulgacion o Veto Presidencial\n"); 
+        printf("8. Administrar Boletines\n"); 
+        printf("9. Administrar Tribunal Constitucional\n");
         printf("0. Salir\n");
         printf("=============================\n");
         printf("Ingrese una opcion: ");
