@@ -229,6 +229,7 @@ void promulgacionOVetoPresidencial(struct presidente *presidente, struct nodoPro
     int decisionPresidencial;
     int decisionCongreso;
     int i;
+    int votoDiputado,votoSenador;
     struct proyecto *propuesta;
 
     // Check if president is registered
@@ -297,13 +298,11 @@ void promulgacionOVetoPresidencial(struct presidente *presidente, struct nodoPro
 
             // Voting by deputies (now using array)
             for (i = 0; i < congreso->plibreDiputados; i++) {
-                printf("El diputado %s vota a favor (1) o en contra (0) del veto presidencial?: ", 
-                       congreso->diputados[i]->nombre);
-                int voto;
-                scanf("%d", &voto);
+                printf("El diputado %s vota a favor (1) o en contra (0) del veto presidencial?: ", congreso->diputados[i]->nombre);
+                scanf("%d", &votoDiputado);
                 limpiarBuffer();
 
-                if (voto == 1) {
+                if (votoDiputado == 1) {
                     votosFavor++;
                 } else {
                     votosContra++;
@@ -313,13 +312,11 @@ void promulgacionOVetoPresidencial(struct presidente *presidente, struct nodoPro
 
             // Voting by senators (now using array traversal)
             for (i = 0; i < congreso->plibreSenadores; i++) {
-                printf("El senador %s vota a favor (1) o en contra (0) del veto presidencial?: ", 
-                       congreso->senadores[i]->nombre);
-                int voto;
-                scanf("%d", &voto);
+                printf("El senador %s vota a favor (1) o en contra (0) del veto presidencial?: ",congreso->senadores[i]->nombre);
+                scanf("%d", &votoSenador);
                 limpiarBuffer();
 
-                if (voto == 1) {
+                if (votoSenador == 1) {
                     votosFavor++;
                 } else {
                     votosContra++;
@@ -572,41 +569,39 @@ void mostrarPromedioEdadCiudadanos(struct nodoCiudadano *ciudadanos) {
 /*   FUNCIONES PARA DIPUTADOS Y SENADORES   */
 /*CORREGIR DECLARACIONES*/
 int BusquedaBinariaParlamentario(struct persona **arreglo, int plibre, char *rutBuscado) {
-    // Validaciones iniciales
-    if (arreglo == NULL || rutBuscado == NULL || plibre == 0) {
-        return -1;  // Arreglo vacío o inválido
-    }
-
-    // Variables para búsqueda binaria
     int inicio = 0;
     int fin = plibre - 1;
     int medio;
     int comparacion;
 
+    if (arreglo == NULL || rutBuscado == NULL || plibre == 0) {
+        return -1;  /* Arreglo vacío o inválido */
+    }
+
     // Búsqueda binaria
     while (inicio <= fin) {
-        // Cálculo de punto medio para evitar overflow
+        /* Cálculo de punto medio para evitar overflow*/
         medio = inicio + (fin - inicio) / 2;
 
-        // Comparar RUTs
+        /*Comparar RUTs */
         comparacion = strcmp(rutBuscado, arreglo[medio]->rut);
 
-        // Si son iguales, encontramos el elemento
+        /*Si son iguales, encontramos el elemento*/
         if (comparacion == 0) {
             return medio;
         }
 
-        // Si el RUT buscado es menor, buscar en la mitad izquierda
+        /*Si el RUT buscado es menor, buscar en la mitad izquierda*/
         if (comparacion < 0) {
             fin = medio - 1;
         }
-        // Si el RUT buscado es mayor, buscar en la mitad derecha
+        /*Si el RUT buscado es mayor, buscar en la mitad derecha*/
         else {
             inicio = medio + 1;
         }
     }
 
-    // No se encontró el elemento
+    /*No se encontró el elemento*/
     return -1;
 }
 
@@ -910,6 +905,10 @@ struct nodoProyecto *crearPropuesta(struct ProcesoLegislativo *pais, struct pers
     nuevaPropuesta->tema = (char *)malloc(strlen(tema) + 1);
     strcpy(nuevaPropuesta->tema, tema);
 
+    printf("\n1. Urgencia Simple\n2. Suma Urgencia\n3. Discusión Inmediata\n");
+    printf("Ingresa la urgencia de la propuesta : ");
+    scanf("%d", &nuevaPropuesta->urgencia);
+    
     nuevaPropuesta->personaAcargo = autor;
 
     printf("Propuesta creada exitosamente.\n");
@@ -1224,9 +1223,18 @@ void comisionMixta(struct nodoProyecto *raizPropuestas, struct congreso *congres
     int idPropuesta;
     int i;
     int consenso = 0;
-    int votosAFavorDiputados = 0, votosEnContraDiputados = 0;
-    int votosAFavorSenadores = 0, votosEnContraSenadores = 0;
-    int votosAFavorTotal, votosEnContraTotal;
+
+    int votosDiputado, votoSenador;
+    
+    int votosAFavorDiputados = 0;
+    int votosEnContraDiputados = 0;
+    
+    int votosAFavorSenadores = 0;
+    int votosEnContraSenadores = 0;
+    
+    
+    int votosAFavorTotal;
+    int votosEnContraTotal;
 
     // Get proposal ID
     printf("Ingresa el ID de la propuesta a enviar a la Comision Mixta: ");
@@ -1253,11 +1261,10 @@ void comisionMixta(struct nodoProyecto *raizPropuestas, struct congreso *congres
     for ( i = 0; i < congreso->plibreDiputados; i++) {
         printf("El diputado %s vota a favor (1) o en contra (0) de la propuesta? ", 
                congreso->diputados[i]->nombre);
-        int voto;
-        scanf("%d", &voto);
+        scanf("%d", &votosDiputado);
         limpiarBuffer();
 
-        if (voto == 1) {
+        if (votosDiputado == 1) {
             votosAFavorDiputados++;
         } else {
             votosEnContraDiputados++;
@@ -1270,13 +1277,11 @@ void comisionMixta(struct nodoProyecto *raizPropuestas, struct congreso *congres
     // Voting by senators
     printf("\nVotacion de los Senadores en la Comision Mixta:\n");
     for (i = 0; i < congreso->plibreSenadores; i++) {
-        printf("El senador %s vota a favor (1) o en contra (0) de la propuesta? ", 
-               congreso->senadores[i]->nombre);
-        int voto;
-        scanf("%d", &voto);
+        printf("El senador %s vota a favor (1) o en contra (0) de la propuesta? ",congreso->senadores[i]->nombre);
+        scanf("%d", &votoSenador);
         limpiarBuffer();
 
-        if (voto == 1) {
+        if (votoSenador == 1) {
             votosAFavorSenadores++;
         } else {
             votosEnContraSenadores++;
@@ -2546,7 +2551,6 @@ void administrarBoletines(struct ProcesoLegislativo *pais){
     int idPropuesta;
 
     struct proyecto *propuesta = NULL;
-    
     while(1){
         printf("\n===== Administrar Boletines =====\n");
         printf("1. Publicar Ley en Boletin y Establecer Vigencia\n");
