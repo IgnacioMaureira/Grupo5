@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*MODIFICAR EN EL INFORME LAS FUNCIONES DE CLS*/
 
 struct presidente {
     struct persona *persona;
