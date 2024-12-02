@@ -1948,6 +1948,7 @@ void administrarCiudadanos(struct ProcesoLegislativo *pais){
                 break;
             case 2:
                 mostrarCiudadanos(ciudadanos);
+                
                 cls();
                 printf("¿Desea realizar otra acción?\n");
                 printf("1. Si\n");
