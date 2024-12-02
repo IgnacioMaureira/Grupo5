@@ -21,7 +21,7 @@ struct proyecto {
     char *tema;
     struct persona *personaAcargo;
     int urgencia; /* 1 = Urgencia Simple, 2 = Suma Urgencia, 3 = Discusión Inmediata*/
-    int estado; /* -1 = pendiente, 0 = en tramite, 1 = aprobada, 2 = rechazada *//*Agregue el estado pendiente*/
+    int estado; /* -1 = pendiente, 0 = en tramite, 1 = aprobada, 2 = rechazada */
 };
 
 struct Grafo {
@@ -903,6 +903,8 @@ struct nodoProyecto *crearPropuesta(struct ProcesoLegislativo *pais, struct pers
     scanf("%s", tema);  // Usamos scanf para leer el tema de la propuesta
     nuevaPropuesta->tema = (char *)malloc(strlen(tema) + 1);
     strcpy(nuevaPropuesta->tema, tema);
+
+    nuevaPropuesta->estado = -1;
 
     printf("\n1. Urgencia Simple\n2. Suma Urgencia\n3. Discusión Inmediata\n");
     printf("Ingresa la urgencia de la propuesta : ");
