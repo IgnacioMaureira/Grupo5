@@ -255,8 +255,7 @@ void promulgacionOVetoPresidencial(struct presidente *presidente, struct nodoPro
     }
 
     // Presidential decision menu
-    printf("El presidente %s esta evaluando la propuesta \"%s\" (ID: %d).\n", 
-           presidente->persona->nombre, propuesta->tema, propuesta->id);
+    printf("El presidente %s esta evaluando la propuesta \"%s\" (ID: %d).\n", presidente->persona->nombre, propuesta->tema, propuesta->id);
     printf("¿Cual es la decision del presidente?\n");
     printf("1. Promulgar la ley\n");
     printf("2. Veto total (rechazar todo el proyecto)\n");
@@ -266,21 +265,18 @@ void promulgacionOVetoPresidencial(struct presidente *presidente, struct nodoPro
 
     if (decisionPresidencial == 1) {
         // Promulgate law
-        printf("El presidente %s ha promulgado la propuesta \"%s\" como ley.\n", 
-               presidente->persona->nombre, propuesta->tema);
+        printf("El presidente %s ha promulgado la propuesta \"%s\" como ley.\n", presidente->persona->nombre, propuesta->tema);
         propuesta->estado = 1; // Approved
     }
     else if (decisionPresidencial == 2) {
         // Total veto
-        printf("El presidente %s ha vetado totalmente la propuesta \"%s\".\n", 
-               presidente->persona->nombre, propuesta->tema);
+        printf("El presidente %s ha vetado totalmente la propuesta \"%s\".\n", presidente->persona->nombre, propuesta->tema);
         printf("El proyecto ha sido rechazado por el presidente y no avanzara.\n");
         propuesta->estado = 2; // Rejected
     }
     else if (decisionPresidencial == 3) {
         // Partial veto with congressional decision
-        printf("El presidente %s ha vetado parcialmente la propuesta \"%s\" y ha sugerido modificaciones.\n",
-               presidente->persona->nombre, propuesta->tema);
+        printf("El presidente %s ha vetado parcialmente la propuesta \"%s\" y ha sugerido modificaciones.\n",presidente->persona->nombre, propuesta->tema);
 
         printf("El Congreso debe decidir si acepta las modificaciones.\n");
         printf("1. Aceptar las modificaciones del presidente\n");
@@ -1730,7 +1726,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
                 administrarCiudadanos(pais);
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1749,7 +1745,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1768,7 +1764,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1786,7 +1782,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
                 administrarPresidente(pais);
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1804,7 +1800,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
                 administrarProyectos(pais);
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1823,7 +1819,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1846,7 +1842,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
                 }
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1865,7 +1861,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1884,7 +1880,7 @@ void menuAdministrar(struct ProcesoLegislativo *pais) {
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1936,7 +1932,7 @@ void administrarCiudadanos(struct ProcesoLegislativo *pais){
                 ciudadanos = agregarCiudadano(ciudadanos, ciudadano);
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1954,7 +1950,7 @@ void administrarCiudadanos(struct ProcesoLegislativo *pais){
                 mostrarCiudadanos(ciudadanos);
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1976,7 +1972,7 @@ void administrarCiudadanos(struct ProcesoLegislativo *pais){
                 eliminarCiudadano(&pais->ciudadanos,rutBuscado);
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -1999,7 +1995,7 @@ void administrarCiudadanos(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2019,7 +2015,7 @@ void administrarCiudadanos(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2074,7 +2070,7 @@ void administrarDiputados(struct ProcesoLegislativo *pais){
                 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2093,7 +2089,7 @@ void administrarDiputados(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2122,7 +2118,7 @@ void administrarDiputados(struct ProcesoLegislativo *pais){
                 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2181,7 +2177,7 @@ void administrarSenadores(struct ProcesoLegislativo *pais){
                 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2200,7 +2196,7 @@ void administrarSenadores(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2229,7 +2225,7 @@ void administrarSenadores(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2289,7 +2285,7 @@ void administrarPresidente(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2308,7 +2304,7 @@ void administrarPresidente(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2361,7 +2357,7 @@ void administrarProyectos(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2386,7 +2382,7 @@ void administrarProyectos(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2406,7 +2402,7 @@ void administrarProyectos(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2425,7 +2421,7 @@ void administrarProyectos(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2476,7 +2472,7 @@ void administrarCamaras(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2500,7 +2496,7 @@ void administrarCamaras(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2524,7 +2520,7 @@ void administrarCamaras(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2584,7 +2580,7 @@ void administrarBoletines(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2605,7 +2601,7 @@ void administrarBoletines(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2663,7 +2659,7 @@ void administrarTribunal(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2686,7 +2682,7 @@ void administrarTribunal(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2706,7 +2702,7 @@ void administrarTribunal(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2749,7 +2745,7 @@ void administrarTribunal(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
@@ -2769,7 +2765,7 @@ void administrarTribunal(struct ProcesoLegislativo *pais){
 
                 cls();
                 printf("¿Desea realizar otra acción?\n");
-                printf("1. Sí\n");
+                printf("1. Si\n");
                 printf("2. No\n");
                 printf("Insertar: ");
                 scanf("%d", &verificarOpcion);
